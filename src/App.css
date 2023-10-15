@@ -1,0 +1,41 @@
+:root {
+  --link-color: #7dd3fc;
+  --stroke-gradient: linear-gradient(90deg, rgba(0, 0, 0, 1) 17%, rgba(255, 255, 255, 1) 100%);
+  --divider-gradient: linear-gradient(90deg, rgba(0, 0, 0, 1) 8%, rgba(255, 255, 255, 1) 50%, rgba(0, 0, 0, 1) 86%);
+}
+
+.profile {
+  overflow: hidden;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+}
+
+.link {
+  text-shadow: var(--text-shadow-neon);
+}
+
+.link:hover {
+  border-bottom: 2px solid var(--link-color);
+}
+
+.gradient-stroke {
+  background: var(--stroke-gradient);
+}
+
+.gradient-divider {
+  background: var(--divider-gradient);
+}
+
+.social-heading {
+  animation: fadeX 0.2s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards 1.5s;
+}
+
+.socials > li {
+  opacity: 0;
+  animation: fadeX 0.3s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards 1.7s;
+}
+
+.btn {
+  @apply px-6 py-4 rounded-full bg-neutral-200 text-neutral-800 hover:bg-neutral-700 hover:text-neutral-100;
+  transition: all 0.125s;
+}
