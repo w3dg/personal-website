@@ -1,3 +1,12 @@
+import { Footer } from "../components/Footer";
+import { Navbar } from "../components/Navbar";
+
 export const Projects = () => {
-  return <div>Projects</div>;
+  return (
+    <>
+      <Navbar></Navbar>
+      Projects
+      <Footer></Footer>
+    </>
+  );
 };

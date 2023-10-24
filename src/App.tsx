@@ -5,9 +5,6 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Projects } from "./pages/Projects";
 
-import { Navbar } from "./components/Navbar";
-import { Footer } from "./components/Footer";
-
 import "./App.css";
 
 function App() {
@@ -32,9 +29,7 @@ function App() {
   return (
     <>
       <div className="min-h-screen bg-neutral-950 text-neutral-100">
-        <Navbar></Navbar>
         <RouterProvider router={router} />
-        <Footer></Footer>
       </div>
     </>
   );
