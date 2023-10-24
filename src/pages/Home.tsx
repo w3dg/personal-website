@@ -33,7 +33,7 @@ export const Home = () => {
 
         <section className="h-32 px-6 my-10">
           <h2 className="w-6/12 mx-auto mb-8 text-xl text-center social-heading">On The Internet</h2>
-          <ul className="flex flex-wrap items-center justify-center w-8/12 gap-6 mx-auto socials">
+          <ul className="flex flex-wrap items-center justify-center w-8/12 gap-6 mx-auto">
             <li>
               <a href="https://dgsh.vercel.app/gh" target="_blank">
                 <TbBrandGithub></TbBrandGithub>
@@ -99,12 +99,18 @@ export const Home = () => {
 
         <section className="grid w-full max-w-lg gap-5 pt-10 mx-auto text-center pb-14 place-items-center">
           <IconContext.Provider value={{ color: "#7a7a7a", size: "1.5rem" }}>
-            <Link to="/projects" className="inline-flex items-center gap-1 btn">
-              Project Showcase <TbArrowUpRight />
+            <Link to="/projects" className="inline-flex items-center gap-2 px-6 py-4 transition-transform duration-300 rounded-full group bg-neutral-200 text-neutral-800">
+              Project Showcase
+              <div className="p-1 transition-transform rounded-full group-hover:bg-neutral-900 group-hover:rotate-45">
+                <TbArrowUpRight />
+              </div>
             </Link>
 
-            <Link to="/contact" className="inline-flex items-center gap-1 btn">
-              Contact Me <TbArrowUpRight />
+            <Link to="/contact" className="inline-flex items-center gap-1 px-6 py-4 transition-transform duration-300 rounded-full group bg-neutral-200 text-neutral-800">
+              Contact Me
+              <div className="p-1 transition-transform rounded-full group-hover:bg-neutral-900 group-hover:rotate-45">
+                <TbArrowUpRight />
+              </div>
             </Link>
           </IconContext.Provider>
         </section>
