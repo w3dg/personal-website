@@ -1,4 +1,4 @@
-import { TbGlobe, TbBrandGithub } from "react-icons/tb";
+import { TbLink, TbBrandGithub } from "react-icons/tb";
 
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
@@ -45,7 +45,11 @@ export const Projects = () => {
           return (
             <div className="w-full max-w-sm rounded-md bg-neutral-900 group" key={index}>
               <div className="overflow-hidden rounded-md h-44">
-                <img src={project.imageUrl} alt={project.description} className="object-contain brightness-75 saturate-50 group-hover:saturate-100" />
+                <img
+                  src={project.imageUrl}
+                  alt={project.description}
+                  className="object-contain transition-transform duration-100 brightness-75 saturate-50 group-hover:saturate-100 group-hover:scale-105"
+                />
               </div>
               <div className="grid gap-2 m-5">
                 <h2 className="text-xl font-semibold text-neutral-300">{project.projectName}</h2>
@@ -59,7 +63,7 @@ export const Projects = () => {
                     </li>
                     <li>
                       <a href={project.link}>
-                        <TbGlobe></TbGlobe>
+                        <TbLink></TbLink>
                       </a>
                     </li>
                   </ul>
