@@ -13,9 +13,9 @@ export const Contact = () => {
     e.preventDefault();
 
     const data = {
-      name,
-      email,
-      message,
+      name: name.trim(),
+      email: email.trim(),
+      message: message.trim(),
     };
 
     formRef && formRef.current?.reset();

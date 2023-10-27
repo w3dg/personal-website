@@ -25,3 +25,15 @@
 .gradient-divider {
   background: var(--divider-gradient);
 }
+
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  @apply bg-neutral-800;
+}
+
+body::-webkit-scrollbar-thumb {
+  @apply bg-neutral-700;
+}
