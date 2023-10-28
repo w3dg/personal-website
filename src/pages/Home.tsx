@@ -1,4 +1,5 @@
-import { TbBrandGithub, TbBrandLinkedin, TbMailForward, TbBrandYoutube, TbBrandInstagram, TbBrandTwitch, TbBrandX, TbBrandDiscord, TbQuote, TbArrowUpRight } from "react-icons/tb";
+import { TbBrandDiscord } from "react-icons/tb";
+import { LuQuote, LuGithub, LuLinkedin, LuMail, LuYoutube, LuInstagram, LuTwitch, LuTwitter, LuArrowUpRight } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { Navbar } from "../components/Navbar";
@@ -8,7 +9,7 @@ export const Home = () => {
   return (
     <>
       <Navbar></Navbar>
-      <IconContext.Provider value={{ color: "#6b7280", size: "1.5rem" }}>
+      <IconContext.Provider value={{ className: "text-slate-400 hover:text-slate-100", size: "1.5rem" }}>
         <section>
           <div className="relative h-72 bg-neutral-400 bg-blend-multiply bg-[url('/neon-bg.jpg')] bg-no-repeat bg-center bg-cover before:content[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-neutral-800/10 before:to-neutral-950"></div>
           <div className="relative grid px-2 place-items-center">
@@ -24,8 +25,8 @@ export const Home = () => {
         </section>
         <section className="relative grid max-w-lg mx-auto mt-3 py-7 place-items-center">
           <div className="absolute -top-2 right-4 opacity-20">
-            <IconContext.Provider value={{ color: "#94a3b8", size: "5rem" }}>
-              <TbQuote></TbQuote>
+            <IconContext.Provider value={{ size: "3rem", className: "text-neutral-400" }}>
+              <LuQuote></LuQuote>
             </IconContext.Provider>
           </div>
           <p className="max-w-md m-2 text-2xl text-center">Building things for the web that aims to make people's lives better</p>
@@ -36,37 +37,37 @@ export const Home = () => {
           <ul className="flex flex-wrap items-center justify-center w-8/12 gap-6 mx-auto">
             <li>
               <a href="https://dgsh.vercel.app/gh" target="_blank">
-                <TbBrandGithub></TbBrandGithub>
+                <LuGithub></LuGithub>
               </a>
             </li>
             <li>
               <a href="https://dgsh.vercel.app/li" target="_blank">
-                <TbBrandLinkedin></TbBrandLinkedin>
+                <LuLinkedin></LuLinkedin>
               </a>
             </li>
             <li>
               <a href="mailto:w3dg@duck.com" target="_blank">
-                <TbMailForward></TbMailForward>
+                <LuMail></LuMail>
               </a>
             </li>
             <li>
               <a href="https://dgsh.vercel.app/yt" target="_blank">
-                <TbBrandYoutube></TbBrandYoutube>
+                <LuYoutube></LuYoutube>
               </a>
             </li>
             <li>
               <a href="https://dgsh.vercel.app/ig" target="_blank">
-                <TbBrandInstagram></TbBrandInstagram>
+                <LuInstagram></LuInstagram>
               </a>
             </li>
             <li>
               <a href="https://dgsh.vercel.app/twitch" target="_blank">
-                <TbBrandTwitch></TbBrandTwitch>
+                <LuTwitch></LuTwitch>
               </a>
             </li>
             <li>
               <a href="https://dgsh.vercel.app/twitter" target="_blank">
-                <TbBrandX></TbBrandX>
+                <LuTwitter></LuTwitter>
               </a>
             </li>
             <li>
@@ -102,14 +103,14 @@ export const Home = () => {
             <Link to="/projects" className="inline-flex items-center gap-2 px-6 py-4 transition-transform duration-300 rounded-full group bg-neutral-200 text-neutral-800">
               Project Showcase
               <div className="p-1 transition-transform rounded-full group-hover:bg-neutral-900 group-hover:rotate-45">
-                <TbArrowUpRight />
+                <LuArrowUpRight />
               </div>
             </Link>
 
             <Link to="/contact" className="inline-flex items-center gap-1 px-6 py-4 transition-transform duration-300 rounded-full group bg-neutral-200 text-neutral-800">
               Contact Me
               <div className="p-1 transition-transform rounded-full group-hover:bg-neutral-900 group-hover:rotate-45">
-                <TbArrowUpRight />
+                <LuArrowUpRight />
               </div>
             </Link>
           </IconContext.Provider>
