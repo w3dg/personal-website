@@ -1,15 +1,20 @@
 import { FormEventHandler, useRef, useState } from "react";
-
+import { TbAlertCircle, TbLoader2 } from "react-icons/tb";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
+import { Link } from "react-router-dom";
+
+const API_URL = window.location.hostname === "localhost" ? "http://localhost:5000" : "https://personal-website-contact-server.onrender.com";
 
 export const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [disabled, setDisabled] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [postError, setPostError] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
-  const handleFormSubmit: FormEventHandler = (e) => {
+  const handleFormSubmit: FormEventHandler = async (e) => {
     e.preventDefault();
 
     const data = {
@@ -18,11 +23,29 @@ export const Contact = () => {
       message: message.trim(),
     };
 
-    formRef && formRef.current?.reset();
     setDisabled(true);
+    setLoading(true);
 
-    //TODO: post data to server/forms service
-    console.log(data);
+    const response = await fetch(`${API_URL}/api/v1/submissions`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.status === 200) {
+      formRef && formRef.current?.reset();
+      setPostError(false);
+      formRef && formRef.current && formRef.current.reset();
+      setName("");
+      setEmail("");
+      setMessage("");
+    } else {
+      setPostError(true);
+    }
+
+    setLoading(false);
   };
 
   const validateFormData = () => {
@@ -42,9 +65,23 @@ export const Contact = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div className="w-11/12 max-w-xl mx-auto mt-8 mb-8">
+      <div className="w-11/12 max-w-xl mx-auto mt-8 mb-8 ">
         <h1 className="mx-auto my-4 text-3xl font-bold text-center lg:text-4xl">Let's talk</h1>
-        <form className="grid gap-2 px-4 py-8 text-lg" onSubmit={handleFormSubmit} onChange={validateFormData} ref={formRef}>
+        <p className="text-center">
+          Check out my{" "}
+          <Link to={"/"} className="underline hover:text-neutral-500">
+            socials
+          </Link>
+          , I would love to connect with you!
+        </p>
+        <p className="text-center">For further queries, you may fill out the form below.</p>
+        <form className="relative grid gap-2 px-4 py-8 mt-2 text-lg" onSubmit={handleFormSubmit} onChange={validateFormData} ref={formRef}>
+          {postError && (
+            <span className="absolute top-0 flex items-center justify-center w-full gap-4 py-2 text-sm rounded-md bg-red-800/60">
+              <TbAlertCircle />
+              Error submitting the form. Try again.
+            </span>
+          )}
           <label htmlFor="nameInput" className="mt-2 ml-1">
             Name
           </label>
@@ -77,13 +114,18 @@ export const Contact = () => {
             placeholder="Hi! I'm looking forward to working with you!"
             onChange={(e) => setMessage(e.target.value)}
           />
-
           <button
             type="submit"
             className={"px-6 py-3 my-4 w-fit rounded-md ml-auto " + (disabled ? "bg-neutral-900/60 text-neutral-600" : "bg-neutral-600/80   hover:bg-slate-500")}
             disabled={disabled}
           >
-            Submit
+            {loading ? (
+              <div className="animate-spin">
+                <TbLoader2 />
+              </div>
+            ) : (
+              "Submit"
+            )}
           </button>
         </form>
       </div>
