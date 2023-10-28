@@ -5,21 +5,21 @@ export default {
     fontFamily: {
       sans: ["DM Sans", "sans-serif", "ui-sans-serif", "system-ui"],
     },
-    keyframes: {
-      fadeX: {
-        "0%": { transform: "translate(20%)", opacity: 0 },
-        "100%": { transform: "translate(0%)", opacity: 1 },
-      },
-      inverseFadeX: {
-        "0%": { transform: "translate(-20%)", opacity: 0 },
-        "100%": { transform: "translate(0%)", opacity: 1 },
-      },
-      fadeYUp: {
-        "0%": { transform: "translate(0, 20%)", opacity: 0 },
-        "100%": { transform: "translate(0, 0)", opacity: 1 },
-      },
-    },
     extend: {
+      keyframes: {
+        fadeX: {
+          "0%": { transform: "translate(20%)", opacity: 0 },
+          "100%": { transform: "translate(0%)", opacity: 1 },
+        },
+        inverseFadeX: {
+          "0%": { transform: "translate(-20%)", opacity: 0 },
+          "100%": { transform: "translate(0%)", opacity: 1 },
+        },
+        fadeYUp: {
+          "0%": { transform: "translate(0, 20%)", opacity: 0 },
+          "100%": { transform: "translate(0, 0)", opacity: 1 },
+        },
+      },
       animation: {
         fadeX: "fadeX 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19)  forwards",
         inverseFadeX: "inverseFadeX 0.5s cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards",
