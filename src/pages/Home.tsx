@@ -1,5 +1,15 @@
 import { TbBrandDiscord } from "react-icons/tb";
-import { LuQuote, LuGithub, LuLinkedin, LuMail, LuYoutube, LuInstagram, LuTwitch, LuTwitter, LuArrowUpRight } from "react-icons/lu";
+import {
+  LuQuote,
+  LuGithub,
+  LuLinkedin,
+  LuMail,
+  LuYoutube,
+  LuInstagram,
+  LuTwitch,
+  LuTwitter,
+  LuArrowUpRight,
+} from "react-icons/lu";
 import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { Navbar } from "../components/Navbar";
@@ -11,7 +21,7 @@ export const Home = () => {
       <Navbar></Navbar>
       <IconContext.Provider value={{ className: "text-slate-400 hover:text-slate-100", size: "1.5rem" }}>
         <section>
-          <div className="relative h-72 bg-neutral-400 bg-blend-multiply bg-[url('/neon-bg.jpg')] bg-no-repeat bg-center bg-cover before:content[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-neutral-800/10 before:to-neutral-950"></div>
+          <div className="relative h-72 bg-neutral-950 pattern before:content[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-neutral-800/10 before:to-neutral-950"></div>
           <div className="relative grid px-2 place-items-center">
             <div className="absolute w-48 h-48 -top-24 drop-shadow-lg profile">
               <img src="/self.jpeg" alt="Self" />
@@ -29,7 +39,9 @@ export const Home = () => {
               <LuQuote></LuQuote>
             </IconContext.Provider>
           </div>
-          <p className="max-w-md m-2 text-2xl text-center">Building things for the web that aims to make people's lives better</p>
+          <p className="max-w-md m-2 text-2xl text-center">
+            Building things for the web that aims to make people's lives better
+          </p>
         </section>
 
         <section className="h-32 px-6 my-10">
@@ -100,14 +112,20 @@ export const Home = () => {
 
         <section className="grid w-full max-w-lg gap-5 pt-10 mx-auto text-center pb-14 place-items-center">
           <IconContext.Provider value={{ color: "#7a7a7a", size: "1.5rem" }}>
-            <Link to="/projects" className="inline-flex items-center gap-2 px-6 py-4 transition-transform duration-300 rounded-full group bg-neutral-200 text-neutral-800">
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 px-6 py-4 transition-transform duration-300 rounded-full group bg-neutral-200 text-neutral-800"
+            >
               Project Showcase
               <div className="p-1 transition-transform rounded-full group-hover:bg-neutral-900 group-hover:rotate-45">
                 <LuArrowUpRight />
               </div>
             </Link>
 
-            <Link to="/contact" className="inline-flex items-center gap-1 px-6 py-4 transition-transform duration-300 rounded-full group bg-neutral-200 text-neutral-800">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-1 px-6 py-4 transition-transform duration-300 rounded-full group bg-neutral-200 text-neutral-800"
+            >
               Contact Me
               <div className="p-1 transition-transform rounded-full group-hover:bg-neutral-900 group-hover:rotate-45">
                 <LuArrowUpRight />
