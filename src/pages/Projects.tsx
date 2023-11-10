@@ -7,13 +7,12 @@ import { TagList } from "../components/TagList";
 
 const projectList = [
   {
-    projectName: "github-status",
-    description: " A simple Github status page made with serverless functions.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1590595906931-81f04f0ccebb?auto=format&fit=crop&q=80&w=1740&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "https://ghstatus.vercel.app/",
-    src: "https://github.com/w3dg/github-status",
-    tags: ["API", "HTML", "CSS", "JS"],
+    projectName: "Job Listings",
+    description: " A sample job listing site with filter tags",
+    imageUrl: "/project-sc/job-listings.png",
+    link: "https://job-listings-with-filtering-phi.vercel.app/",
+    src: "https://github.com/w3dg/",
+    tags: ["ReactJS", "Typescript", "TailwindCSS"],
   },
   {
     projectName: "github-profile-search",
@@ -23,6 +22,15 @@ const projectList = [
     link: "https://github-profile-search.vercel.app/",
     src: "https://github.com/w3dg/github-profile-search",
     tags: ["API", "ReactJS", "CSS"],
+  },
+  {
+    projectName: "Github Status",
+    description: " A simple Github status page made with serverless functions.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1590595906931-81f04f0ccebb?auto=format&fit=crop&q=80&w=1740&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    link: "https://ghstatus.vercel.app/",
+    src: "https://github.com/w3dg/github-status",
+    tags: ["API", "HTML", "CSS", "JS"],
   },
   {
     projectName: "linkcl",
@@ -48,8 +56,8 @@ export const Projects = () => {
   return (
     <>
       <Navbar></Navbar>
-      <h2 className="my-4 text-2xl text-center lg:text-3xl">Projects</h2>
-      <div className="grid w-full max-w-screen-xl grid-cols-1 gap-8 px-6 py-4 mx-auto mb-40 place-items-center lg:grid-cols-3 lg:gap-12">
+      <h2 className="my-8 text-2xl font-bold text-center lg:text-3xl">Projects</h2>
+      <div className="grid items-stretch w-full max-w-screen-xl grid-cols-1 gap-8 px-6 py-4 mx-auto mb-40 place-items-center lg:grid-cols-3 lg:gap-12">
         {projectList.map((project, index) => {
           return (
             <div className="w-full max-w-sm rounded-md bg-neutral-900 group" key={index}>
@@ -64,7 +72,7 @@ export const Projects = () => {
                 <h2 className="text-xl font-semibold text-neutral-300">{project.projectName}</h2>
                 <p className="text-neutral-500">{project.description}</p>
                 <TagList tags={project.tags}></TagList>
-                <IconContext.Provider value={{ className: "text-blue-300/60 hover:text-blue-300", size: "1.4rem" }}>
+                <IconContext.Provider value={{ className: "text-slate-300/60 hover:text-blue-300", size: "1.4rem" }}>
                   <ul className="flex justify-end gap-3">
                     <li>
                       <a href={project.src}>
