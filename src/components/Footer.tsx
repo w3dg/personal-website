@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="w-full py-10 border-t-2 border-neutral-800">
+    <footer className="w-full py-10 border-t-2 border-neutral-900">
       <div className="grid w-full max-w-lg gap-1 mx-auto place-items-center text-neutral-600">
         <p>made with &lt;3 and coffee</p>
         <p>&copy;{currentYear} DG Media All Rights Reserved</p>
