@@ -1,11 +1,10 @@
-import { TbLink, TbBrandGithub } from "react-icons/tb";
-
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
-import { IconContext } from "react-icons";
-import { TagList } from "../components/TagList";
+import { ProjectCard } from "../components/ProjectCard";
 
-const projectList = [
+import Project from "../interfaces/Project";
+
+const projectList: Project[] = [
   {
     projectName: "Job Listings",
     description: " A sample job listing site with filter tags",
@@ -17,8 +16,7 @@ const projectList = [
   {
     projectName: "github-profile-search",
     description: " Searches Github by username and shows top information.",
-    imageUrl:
-      "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?auto=format&fit=crop&q=80&w=1685&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imageUrl: "/project-sc/profile-search.png",
     link: "https://github-profile-search.vercel.app/",
     src: "https://github.com/w3dg/github-profile-search",
     tags: ["API", "ReactJS", "CSS"],
@@ -36,7 +34,7 @@ const projectList = [
     projectName: "linkcl",
     description: " A CLI tool to clean up your links of the various tracking parameters.",
     imageUrl:
-      "https://images.unsplash.com/photo-1606778303077-3780ea8d5420?auto=format&fit=crop&q=80&w=1740&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F7654%2F1*KDZTfB2dvoNUgqc3AVqDAQ.jpeg&f=1&nofb=1&ipt=e4ff9d4bbfd8b9505fe76dccff206f84237f96fec3a8819a0cf800b1d0d63841&ipo=images",
     link: "https://www.npmjs.com/package/linkcl",
     src: "https://github.com/w3dg/linkcl",
     tags: ["NodeJS", "CLI"],
@@ -58,37 +56,8 @@ export const Projects = () => {
       <Navbar></Navbar>
       <h2 className="my-8 text-2xl font-bold text-center lg:text-3xl">Projects</h2>
       <div className="grid items-stretch w-full max-w-screen-xl grid-cols-1 gap-8 px-6 py-4 mx-auto mb-40 place-items-center lg:grid-cols-3 lg:gap-12">
-        {projectList.map((project, index) => {
-          return (
-            <div className="w-full max-w-sm rounded-md bg-neutral-900 group" key={index}>
-              <div className="overflow-hidden rounded-md h-44">
-                <img
-                  src={project.imageUrl}
-                  alt={project.description}
-                  className="object-contain transition-transform duration-100 brightness-75 saturate-50 group-hover:saturate-100 group-hover:scale-105"
-                />
-              </div>
-              <div className="grid gap-2 m-5">
-                <h2 className="text-xl font-semibold text-neutral-300">{project.projectName}</h2>
-                <p className="text-neutral-500">{project.description}</p>
-                <TagList tags={project.tags}></TagList>
-                <IconContext.Provider value={{ className: "text-slate-300/60 hover:text-blue-300", size: "1.4rem" }}>
-                  <ul className="flex justify-end gap-3">
-                    <li>
-                      <a href={project.src}>
-                        <TbBrandGithub></TbBrandGithub>
-                      </a>
-                    </li>
-                    <li>
-                      <a href={project.link}>
-                        <TbLink></TbLink>
-                      </a>
-                    </li>
-                  </ul>
-                </IconContext.Provider>
-              </div>
-            </div>
-          );
+        {projectList.map((project) => {
+          return <ProjectCard project={project} key={project.projectName}></ProjectCard>;
         })}
       </div>
       <Footer></Footer>
