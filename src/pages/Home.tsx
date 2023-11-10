@@ -90,8 +90,6 @@ export const Home = () => {
           </ul>
         </section>
 
-        <div className="w-48 h-px max-w-lg mx-auto mt-20 gradient-divider"></div>
-
         <section className="w-full max-w-xl px-5 py-10 mx-auto mt-5">
           <h2 className="my-2 text-2xl text-center">How may I help you</h2>
           <div className="grid grid-cols-4 grid-rows-3 my-4 mt-8 text-center lg:text-lg">
