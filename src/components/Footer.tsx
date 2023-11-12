@@ -10,7 +10,7 @@ export const Footer = () => {
 
   return (
     <footer
-      className={clsx("w-full py-10 border-t-2 border-neutral-900/70", {
+      className={clsx("w-full xl:max-w-xl xl:mx-auto py-10 border-t-2 border-neutral-700/20", {
         "bg-neutral-100 text-neutral-900": theme.themeState === "light",
         "bg-neutral-950 text-neutral-200": theme.themeState === "dark",
       })}

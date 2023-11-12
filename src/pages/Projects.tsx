@@ -14,7 +14,7 @@ const projectList: Project[] = [
     tags: ["ReactJS", "Typescript", "TailwindCSS"],
   },
   {
-    projectName: "github-profile-search",
+    projectName: "GitHub Profile Search",
     description: " Searches Github by username and shows top information.",
     imageUrl: "/project-sc/profile-search.png",
     link: "https://github-profile-search.vercel.app/",
@@ -31,7 +31,7 @@ const projectList: Project[] = [
     tags: ["API", "HTML", "CSS", "JS"],
   },
   {
-    projectName: "linkcl",
+    projectName: "Link Cleaner CLI",
     description: " A CLI tool to clean up your links of the various tracking parameters.",
     imageUrl:
       "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fmax%2F7654%2F1*KDZTfB2dvoNUgqc3AVqDAQ.jpeg&f=1&nofb=1&ipt=e4ff9d4bbfd8b9505fe76dccff206f84237f96fec3a8819a0cf800b1d0d63841&ipo=images",
@@ -40,7 +40,7 @@ const projectList: Project[] = [
     tags: ["NodeJS", "CLI"],
   },
   {
-    projectName: "http-status-code-lookup",
+    projectName: "HTTP Status Lookup",
     description: " A CLI tool to quickly look up what a http status code means.",
     imageUrl:
       "https://images.pexels.com/photos/2882570/pexels-photo-2882570.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

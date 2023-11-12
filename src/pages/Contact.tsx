@@ -4,7 +4,13 @@ import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { Link } from "react-router-dom";
 
-const API_URL = window.location.hostname === "localhost" ? "http://localhost:5000" : "https://personal-website-contact-server.onrender.com";
+import { useTheme } from "../providers/ThemeProvider";
+import clsx from "clsx";
+
+const API_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:5000"
+    : "https://personal-website-contact-server.onrender.com";
 
 export const Contact = () => {
   const [name, setName] = useState("");
@@ -14,6 +20,9 @@ export const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [postError, setPostError] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+
+  const theme = useTheme();
+
   const handleFormSubmit: FormEventHandler = async (e) => {
     e.preventDefault();
 
@@ -62,10 +71,20 @@ export const Contact = () => {
     }
   };
 
+  const inputStyle = clsx("max-w-xl p-3 mt-1 rounded-md  placeholder:text-neutral-600", {
+    "bg-neutral-900": theme.themeState === "dark",
+    "bg-neutral-200/70": theme.themeState === "light",
+  });
+
   return (
     <>
       <Navbar></Navbar>
-      <div className="w-11/12 max-w-xl mx-auto mt-8 mb-8 ">
+      <div
+        className={clsx("w-11/12 max-w-xl mx-auto mt-8 mb-8 ", {
+          "bg-neutral-950 text-neutral-200": theme.themeState === "dark",
+          "bg-neutral-100 text-neutral-800": theme.themeState === "light",
+        })}
+      >
         <h1 className="mx-auto my-4 text-3xl font-bold text-center lg:text-4xl">Let's talk</h1>
         <p className="text-center">
           Check out my{" "}
@@ -75,9 +94,14 @@ export const Contact = () => {
           , I would love to connect with you!
         </p>
         <p className="text-center">For further queries, you may fill out the form below.</p>
-        <form className="relative grid gap-2 px-4 py-8 mt-2 text-lg" onSubmit={handleFormSubmit} onChange={validateFormData} ref={formRef}>
+        <form
+          className="relative grid gap-2 px-4 py-8 mt-2 text-lg"
+          onSubmit={handleFormSubmit}
+          onChange={validateFormData}
+          ref={formRef}
+        >
           {postError && (
-            <span className="absolute top-0 flex items-center justify-center w-full gap-4 py-2 text-sm rounded-md bg-red-800/60">
+            <span className="absolute top-0 flex items-center justify-center w-full gap-4 py-2 text-sm text-white rounded-md bg-red-800/60">
               <TbAlertCircle />
               Error submitting the form. Try again.
             </span>
@@ -88,7 +112,7 @@ export const Contact = () => {
           <input
             id="nameInput"
             type="text"
-            className="max-w-xl p-3 mt-1 rounded-md bg-neutral-900 placeholder:text-neutral-600"
+            className={inputStyle}
             placeholder="John"
             onChange={(e) => {
               setName(e.target.value);
@@ -100,7 +124,7 @@ export const Contact = () => {
           <input
             id="emailInput"
             type="email"
-            className="max-w-xl p-3 mt-1 rounded-md bg-neutral-900 placeholder:text-neutral-600"
+            className={inputStyle}
             placeholder="john@example.com"
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -110,13 +134,18 @@ export const Contact = () => {
           <textarea
             rows={8}
             id="messageInput"
-            className="max-w-xl p-3 mt-1 rounded-md bg-neutral-900 placeholder:text-neutral-600"
+            className={inputStyle}
             placeholder="Hi! I'm looking forward to working with you!"
             onChange={(e) => setMessage(e.target.value)}
           />
           <button
             type="submit"
-            className={"px-6 py-3 my-4 w-fit rounded-md ml-auto " + (disabled ? "bg-neutral-900/60 text-neutral-600" : "bg-neutral-600/80   hover:bg-slate-500")}
+            className={clsx("px-6 py-3 my-4 w-fit rounded-md ml-auto ", {
+              "bg-neutral-900/60 text-neutral-600 hover:bg-neutral-900/60": disabled && theme.themeState === "dark",
+              "bg-neutral-600/80   hover:bg-slate-500": !disabled && theme.themeState === "dark",
+              "bg-neutral-200/60 text-neutral-600 hover:bg-neutral-200/60": disabled && theme.themeState === "light",
+              "bg-neutral-200/80   hover:bg-slate-300": !disabled && theme.themeState === "light",
+            })}
             disabled={disabled}
           >
             {loading ? (

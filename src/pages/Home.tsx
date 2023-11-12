@@ -14,28 +14,47 @@ import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
+import { useTheme } from "../providers/ThemeProvider";
+import clsx from "clsx";
 
 export const Home = () => {
+  const theme = useTheme();
+
   return (
     <>
       <Navbar></Navbar>
-      <IconContext.Provider value={{ className: "text-slate-400 hover:text-slate-100", size: "1.5rem" }}>
+      <IconContext.Provider
+        value={{
+          className:
+            theme.themeState === "dark" ? "text-slate-400 hover:text-slate-100" : "text-slate-700 hover:text-slate-950",
+          size: "1.5rem",
+        }}
+      >
         <section>
-          <div className="relative h-72 bg-neutral-950 pattern before:content[''] before:absolute before:inset-0 before:bg-gradient-to-b before:from-neutral-800/10 before:to-neutral-950"></div>
+          <div
+            className={clsx("relative h-72 before:content[''] before:absolute before:inset-0 before:bg-gradient-to-b", {
+              "bg-neutral-950 pattern-dark before:from-neutral-800/10 before:to-neutral-950":
+                theme.themeState === "dark",
+              "bg-neutral-200 pattern-light before:from-neutral-100/10 before:to-neutral-100":
+                theme.themeState === "light",
+            })}
+          ></div>
           <div className="relative grid px-2 place-items-center">
             <div className="absolute w-48 h-48 -top-24 drop-shadow-lg profile">
-              <img src="/self.jpeg" alt="Self" />
+              <img src="/self.jpeg" alt="Debopam Gupta" />
             </div>
             <div className="grid gap-3 place-items-center">
               <p className="mt-32 text-2xl lg:text-3xl">Debopam Gupta</p>
-              <p className="text-2xl font-bold text-slate-100 lg:text-3xl">Full Stack Developer</p>
+              <p className="text-2xl font-bold lg:text-3xl">Full Stack Developer</p>
               <div className="w-48 h-px max-w-lg my-2 gradient-stroke"></div>
             </div>
           </div>
         </section>
         <section className="relative grid max-w-lg mx-auto mt-3 py-7 place-items-center">
           <div className="absolute -top-2 right-4 opacity-20">
-            <IconContext.Provider value={{ size: "3rem", className: "text-neutral-400" }}>
+            <IconContext.Provider
+              value={{ size: "3rem", className: theme.themeState === "dark" ? "text-neutral-400" : "text-neutral-800" }}
+            >
               <LuQuote></LuQuote>
             </IconContext.Provider>
           </div>
@@ -93,15 +112,30 @@ export const Home = () => {
         <section className="w-full max-w-xl px-5 py-10 mx-auto mt-5">
           <h2 className="my-2 text-2xl text-center">How may I help you</h2>
           <div className="grid grid-cols-4 grid-rows-3 my-4 mt-8 text-center lg:text-lg">
-            <div className="row-start-1 p-5 my-2 rounded-md bg-neutral-900 col-span-full md:col-span-2">
+            <div
+              className={clsx("row-start-1 p-5 my-2 rounded-md  col-span-full md:col-span-2", {
+                "bg-neutral-900": theme.themeState === "dark",
+                "bg-neutral-400": theme.themeState === "light",
+              })}
+            >
               <p>Dream</p>
               <p className="text-sm">Your dream, my vision</p>
             </div>
-            <div className="row-start-2 p-5 my-2 rounded-md bg-neutral-800 col-span-full md:col-span-2 md:col-start-2">
+            <div
+              className={clsx("row-start-2 p-5 my-2 rounded-md  col-span-full md:col-span-2 md:col-start-2", {
+                "bg-neutral-800": theme.themeState === "dark",
+                "bg-neutral-400/70": theme.themeState === "light",
+              })}
+            >
               <p>Design</p>
               <p className="text-sm">All the dazzle</p>
             </div>
-            <div className="row-start-3 p-5 my-2 rounded-md bg-neutral-700 col-span-full md:col-span-2 md:col-start-3">
+            <div
+              className={clsx("row-start-3 p-5 my-2 rounded-md col-span-full md:col-span-2 md:col-start-3", {
+                "bg-neutral-700": theme.themeState === "dark",
+                "bg-neutral-300/70": theme.themeState === "light",
+              })}
+            >
               <p>Develop</p>
               <p className="text-sm">Let me do the heavylifting</p>
             </div>

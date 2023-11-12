@@ -5,11 +5,13 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Projects } from "./pages/Projects";
 
-import { ThemeProvider } from "./providers/ThemeProvider";
+import { useTheme } from "./providers/ThemeProvider";
 
 import "./App.css";
+import clsx from "clsx";
 
 function App() {
+  const theme = useTheme();
   const router = createBrowserRouter([
     {
       path: "/",
@@ -30,11 +32,14 @@ function App() {
 
   return (
     <>
-      <ThemeProvider>
-        <div className="min-h-screen bg-neutral-950 text-neutral-100">
-          <RouterProvider router={router} />
-        </div>
-      </ThemeProvider>
+      <div
+        className={clsx("min-h-screen ", {
+          "bg-neutral-950 text-neutral-100": theme.themeState === "dark",
+          "bg-neutral-100 text-neutral-800": theme.themeState === "light",
+        })}
+      >
+        <RouterProvider router={router} />
+      </div>
     </>
   );
 }
