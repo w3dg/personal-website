@@ -5,6 +5,8 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Projects } from "./pages/Projects";
 
+import { ThemeProvider } from "./providers/ThemeProvider";
+
 import "./App.css";
 
 function App() {
@@ -28,9 +30,11 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen bg-neutral-950 text-neutral-100">
-        <RouterProvider router={router} />
-      </div>
+      <ThemeProvider>
+        <div className="min-h-screen bg-neutral-950 text-neutral-100">
+          <RouterProvider router={router} />
+        </div>
+      </ThemeProvider>
     </>
   );
 }
