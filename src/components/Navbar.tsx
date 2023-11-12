@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { clsx } from "clsx";
 import { LuSunMedium, LuMoon } from "react-icons/lu";
 
 import { useTheme } from "../providers/ThemeProvider";
@@ -29,11 +30,14 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={
-          "sticky inset-x-0 top-0 z-10 flex justify-between px-4 py-3 lg:px-6  backdrop-blur-md lg:py-4" +
-          (scrolledPast ? " shadow-lg shadow-neutral-900" : "") +
-          (theme.themeState === "dark" ? "bg-neutral-950/70 text-neutral-200" : "bg-neutral-200/70 text-neutral-900")
-        }
+        className={clsx(
+          "sticky inset-x-0 top-0 z-10 flex justify-between px-4 py-3 lg:px-6 backdrop-blur-md lg:py-4 bg-neutral-950/70 text-neutral-200",
+          {
+            "shadow-lg shadow-neutral-900": scrolledPast && theme.themeState === "dark",
+            "shadow-lg shadow-neutral-600": scrolledPast && theme.themeState === "light",
+            "bg-neutral-200/70 text-neutral-900 ": theme.themeState === "light",
+          }
+        )}
       >
         <Link to="/">DG</Link>
         <ul className="flex space-x-4">
