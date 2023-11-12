@@ -30,14 +30,12 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={clsx(
-          "sticky inset-x-0 top-0 z-10 flex justify-between px-4 py-3 lg:px-6 backdrop-blur-md lg:py-4 bg-neutral-950/70 text-neutral-200",
-          {
-            "shadow-lg shadow-neutral-900": scrolledPast && theme.themeState === "dark",
-            "shadow-lg shadow-neutral-600": scrolledPast && theme.themeState === "light",
-            "bg-neutral-200/70 text-neutral-900 ": theme.themeState === "light",
-          }
-        )}
+        className={clsx("sticky inset-x-0 top-0 z-10 flex justify-between px-4 py-3 lg:px-6 backdrop-blur-md lg:py-4", {
+          "shadow-lg shadow-neutral-900": scrolledPast && theme.themeState === "dark",
+          "shadow-lg shadow-neutral-600": scrolledPast && theme.themeState === "light",
+          "bg-neutral-100/70 text-neutral-900 ": theme.themeState === "light",
+          "bg-neutral-950/70 text-neutral-200 ": theme.themeState === "dark",
+        })}
       >
         <Link to="/">DG</Link>
         <ul className="flex space-x-4">
